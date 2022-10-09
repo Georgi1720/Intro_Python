@@ -5,10 +5,22 @@
 # - 7 -> да
 # - 1 -> нет
 
-week_day = int(input('Введите цифру дня недели: '))
-if week_day >= 1 and week_day <= 5:
-    print('Сегодня будний день')
-elif week_day == 6 or week_day == 7:
-    print('Сегодня выходной день')
-else:
-    print('Такого дня нет')
+# week_day = int(input('Введите цифру дня недели: '))
+# if week_day >= 1 and week_day <= 5:
+#     print('Сегодня будний день')
+# elif week_day == 6 or week_day == 7:
+#     print('Сегодня выходной день')
+# else:
+#     print('Такого дня нет')
+
+#-----------------------------------------Семинар 1 задание 2-----------------------------------------#
+# Напишите программу для. проверки истинности утверждения ¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z для всех значений предикат.
+
+print('¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z')
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            if not(x or y or z) == (not x and not y and not z):
+                print(f'Утверждение истенно при X = {x}, Y = {y}, Z = {z}')
+            else:
+                print(f'Утверждение ложно при X = {x}, Y = {y}, Z = {z}')
