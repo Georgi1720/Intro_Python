@@ -109,20 +109,45 @@
 # К каждому элементу списка добавить 17 и заново вычислить сумму тех чисел из этого списка, сумма цифр которых делится нацело на 7.
 # * Решить задачу под пунктом b, не создавая новый список.
 
-def sum_elements(list):
-    sum_element_in_list = 0
-    for element in list:
-        sum_element = 0
-        for i in str(element):
-            sum_element += int(i)
-        if sum_element % 7 == 0:
-            sum_element_in_list += element
-    return sum_element_in_list
+# def sum_elements(list):
+#     sum_element_in_list = 0
+#     for element in list:
+#         sum_element = 0
+#         for i in str(element):
+#             sum_element += int(i)
+#         if sum_element % 7 == 0:
+#             sum_element_in_list += element
+#     return sum_element_in_list
 
 
-start_list = [element**3 for element in range (1,1000,2)]
-print(start_list)
-print(f'Сумма элементов делящихся на 7 в исходном массиве {sum_elements(start_list)}')
-start_list = [element + 17 for element in start_list]
-print(start_list)
-print(f'Сумма элементов делящихся на 7 в новом массиве {sum_elements(start_list)}')
+# start_list = [element**3 for element in range (1,1000,2)]
+# print(start_list)
+# print(f'Сумма элементов делящихся на 7 в исходном массиве {sum_elements(start_list)}')
+# start_list = [element + 17 for element in start_list]
+# print(start_list)
+# print(f'Сумма элементов делящихся на 7 в новом массиве {sum_elements(start_list)}')
+
+#-----------------------------------------Семинар 1 задание 8-----------------------------------------#
+# Склонение слова
+# Реализовать склонение слова «процент» во фразе «N процентов». Вывести эту фразу на экран отдельной строкой для каждого из чисел в интервале от 1 до 100:
+# 1 процент
+# 2 процента
+# 3 процента
+# 4 процента
+# 5 процентов
+# 6 процентов
+# ...
+# 100 процентов
+
+for i in range(1,101):
+    list = str(i)
+    size = len(list)
+    if list[size-1] == '1' and i != 11:
+        print(f'{i} процент')
+    elif list[size-1] == '2' or list[size-1] == '3' or list[size-1] == '4':
+        if i == 12 or i == 13 or i == 14:
+            print(f'{i} процентов')
+        else:
+            print(f'{i} процента')
+    else:
+        print(f'{i} процентов')
