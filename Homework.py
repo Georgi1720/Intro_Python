@@ -69,9 +69,35 @@
 # - A (3,6); B (2,1) -> 5,09
 # - A (7,-5); B (1,-1) -> 7,21
 
-import math
+# import math
 
-a_x, a_y = map(int, input('Введите координаты точки А: ').split(','))
-b_x, b_y = map(int, input('Введите координаты точки B: ').split(','))
-distance = math.sqrt((a_x - b_x)**2 + (a_y - b_y)**2)
-print(f'Длина отрезка AB равна {round(distance,2)}')
+# a_x, a_y = map(int, input('Введите координаты точки А: ').split(','))
+# b_x, b_y = map(int, input('Введите координаты точки B: ').split(','))
+# distance = math.sqrt((a_x - b_x)**2 + (a_y - b_y)**2)
+# print(f'Длина отрезка AB равна {round(distance,2)}')
+
+#-----------------------------------------Семинар 1 задание 6-----------------------------------------#
+# 1. Реализовать вывод информации о промежутке времени в зависимости от его продолжительности duration в секундах: 
+# до минуты: <s> сек; до часа: <m> мин <s> сек; до суток: <h> час <m> мин <s> сек; * в остальных случаях: <d> дн <h> час <m> мин <s> сек.
+# Примеры:
+# duration = 53
+# 53 сек
+# duration = 153
+# 2 мин 33 сек
+# duration = 4153
+# 1 час 9 мин 13 сек
+# duration = 400153
+# 4 дн 15 час 9 мин 13 сек
+
+duration = int(input('Введите время в секундах: '))
+sec_limit = 60
+min_limit = sec_limit * 60
+hours_limit = min_limit * 24
+if duration < sec_limit:
+    print(f'{duration} сек')
+elif duration < min_limit and duration > sec_limit:
+    print(f'{duration // sec_limit} мин {duration % sec_limit} сек')
+elif duration < hours_limit and duration > min_limit:
+    print(f'{duration // min_limit} час {(duration % min_limit) // sec_limit} мин {((duration % min_limit) % sec_limit) % sec_limit} сек')
+else:
+    print(f'{duration // hours_limit} дн {(duration % hours_limit) // min_limit} час {((duration % hours_limit) % min_limit) // sec_limit} мин {(((duration % hours_limit) % min_limit) % sec_limit) % sec_limit} сек')
