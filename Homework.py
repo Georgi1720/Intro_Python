@@ -89,15 +89,40 @@
 # duration = 400153
 # 4 дн 15 час 9 мин 13 сек
 
-duration = int(input('Введите время в секундах: '))
-sec_limit = 60
-min_limit = sec_limit * 60
-hours_limit = min_limit * 24
-if duration < sec_limit:
-    print(f'{duration} сек')
-elif duration < min_limit and duration > sec_limit:
-    print(f'{duration // sec_limit} мин {duration % sec_limit} сек')
-elif duration < hours_limit and duration > min_limit:
-    print(f'{duration // min_limit} час {(duration % min_limit) // sec_limit} мин {((duration % min_limit) % sec_limit) % sec_limit} сек')
-else:
-    print(f'{duration // hours_limit} дн {(duration % hours_limit) // min_limit} час {((duration % hours_limit) % min_limit) // sec_limit} мин {(((duration % hours_limit) % min_limit) % sec_limit) % sec_limit} сек')
+# duration = int(input('Введите время в секундах: '))
+# sec_limit = 60
+# min_limit = sec_limit * 60
+# hours_limit = min_limit * 24
+# if duration < sec_limit:
+#     print(f'{duration} сек')
+# elif duration < min_limit and duration > sec_limit:
+#     print(f'{duration // sec_limit} мин {duration % sec_limit} сек')
+# elif duration < hours_limit and duration > min_limit:
+#     print(f'{duration // min_limit} час {(duration % min_limit) // sec_limit} мин {((duration % min_limit) % sec_limit) % sec_limit} сек')
+# else:
+#     print(f'{duration // hours_limit} дн {(duration % hours_limit) // min_limit} час {((duration % hours_limit) % min_limit) // sec_limit} мин {(((duration % hours_limit) % min_limit) % sec_limit) % sec_limit} сек')
+
+#-----------------------------------------Семинар 1 задание 7-----------------------------------------#
+# Создать список, состоящий из кубов нечётных чисел от 1 до 1000 (куб X - третья степень числа X):
+# Вычислить сумму тех чисел из этого списка, сумма цифр которых делится нацело на 7. 
+# Например, число «19 ^ 3 = 6859» будем включать в сумму, так как 6 + 8 + 5 + 9 = 28 – делится нацело на 7. Внимание: использовать только арифметические операции!
+# К каждому элементу списка добавить 17 и заново вычислить сумму тех чисел из этого списка, сумма цифр которых делится нацело на 7.
+# * Решить задачу под пунктом b, не создавая новый список.
+
+def sum_elements(list):
+    sum_element_in_list = 0
+    for element in list:
+        sum_element = 0
+        for i in str(element):
+            sum_element += int(i)
+        if sum_element % 7 == 0:
+            sum_element_in_list += element
+    return sum_element_in_list
+
+
+start_list = [element**3 for element in range (1,1000,2)]
+print(start_list)
+print(f'Сумма элементов делящихся на 7 в исходном массиве {sum_elements(start_list)}')
+start_list = [element + 17 for element in start_list]
+print(start_list)
+print(f'Сумма элементов делящихся на 7 в новом массиве {sum_elements(start_list)}')
