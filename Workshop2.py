@@ -4,10 +4,25 @@
 # - 6782 -> 23
 # - 0,56 -> 11
 
-float_value = input('Введите число с плавающей запятой: ')
-sum_elements = 0
-for i in float_value:
-    if i != ',' and i != '.':
-        sum_elements += int(i)
+# float_value = input('Введите число с плавающей запятой: ')
+# sum_elements = 0
+# for i in float_value:
+#     if i != ',' and i != '.':
+#         sum_elements += int(i)
+#
+# print(f'Сумма элементов введенного числа = {sum_elements}')
 
-print(f'Сумма элементов введенного числа = {sum_elements}')
+#-----------------------------------------Семинар 2 задание 2-----------------------------------------#
+# Напишите программу, которая принимает на вход число N и выдает набор произведений чисел от 1 до N.
+# Пример:
+# - пусть N = 4, тогда [ 1, 2, 6, 24 ] (1, 1*2, 1*2*3, 1*2*3*4)
+
+number = int(input('Введите число: '))
+mul = 1
+factorial_list = []
+for i in range(1, number+1):
+    mul *= i
+    factorial_list.append(mul)
+print(factorial_list, sep=',')
+
+
