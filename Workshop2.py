@@ -59,37 +59,63 @@ import random
 # Даны два массива: [1, 2, 3, 2, 0] и [5, 1, 2, 7, 3, 2] Надо вернуть их пересечение
 # [1, 2, 2, 3] (порядок не важен)
 
-first_list = [1, 2, 3, 2, 0]
-size_first = len(first_list)
-second_list = [5, 1, 2, 7, 3, 2]
-size_second = len(second_list)
-output_list = []
-
-for i in range(0,size_first):
-    tmp = first_list[i]
-    for j in range(0,size_second):
-        if second_list[j] == tmp:
-            output_list.append(tmp)
-            break
-
-# Если алгоритмы не подразумевают метод .append() и его нельзя использовать то можно сделать так
-# counter = 0
-# for i in range(0,size_first):
-#     tmp = first_list[i]
-#     for j in range(0,size_second):
-#         if second_list[j] == tmp:
-#             counter += 1
-#             break
-#
-# output_list = [0] * counter
-# counter = 0
+# first_list = [1, 2, 3, 2, 0]
+# size_first = len(first_list)
+# second_list = [5, 1, 2, 7, 3, 2]
+# size_second = len(second_list)
+# output_list = []
 #
 # for i in range(0,size_first):
 #     tmp = first_list[i]
 #     for j in range(0,size_second):
 #         if second_list[j] == tmp:
-#             output_list[counter] = tmp
-#             counter += 1
+#             output_list.append(tmp)
 #             break
+#
+# # Если алгоритмы не подразумевают метод .append() и его нельзя использовать то можно сделать так
+# # counter = 0
+# # for i in range(0,size_first):
+# #     tmp = first_list[i]
+# #     for j in range(0,size_second):
+# #         if second_list[j] == tmp:
+# #             counter += 1
+# #             break
+# #
+# # output_list = [0] * counter
+# # counter = 0
+# #
+# # for i in range(0,size_first):
+# #     tmp = first_list[i]
+# #     for j in range(0,size_second):
+# #         if second_list[j] == tmp:
+# #             output_list[counter] = tmp
+# #             counter += 1
+# #             break
+#
+# print(output_list)
 
-print(output_list)
+#-----------------------------------------Семинар 2 задание 6-----------------------------------------#
+# Задайте список из N элементов, заполненных числами из промежутка [-N, N].
+# Найдите произведение элементов на указанных позициях. Позиции хранятся в файле file.txt в одной строке одно число.
+
+number = int(input('Введите число: '))
+
+with open('text.txt','w') as file:
+    file.writelines(f'{random.randint(0, number * 2)}\n')
+    file.writelines(f'{random.randint(0, number * 2)}\n')
+    file.writelines(f'{random.randint(0, number * 2)}\n')
+    file.writelines(f'{random.randint(0, number * 2)}\n')
+index_list = []
+with open('text.txt','r') as file:
+    for line in file:
+        index_list.append(line.rstrip('\n'))    # от каретки всегда нужно будет избавляться подобным способом?
+
+print(f'Индексы из text.txt - {index_list}')
+mul = 1
+number_list = list(range(-number, number+1))
+for item in index_list:
+    mul *= number_list[int(item)]
+print(f'Основной список - {number_list}')
+print(f'Сумма элементов = {mul}')
+
+
