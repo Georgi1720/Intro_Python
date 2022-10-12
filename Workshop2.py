@@ -3,6 +3,7 @@
 # Пример:
 # - 6782 -> 23
 # - 0,56 -> 11
+import random
 
 # float_value = input('Введите число с плавающей запятой: ')
 # sum_elements = 0
@@ -30,13 +31,25 @@
 # Пример:
 # - Для n = 4: {1: 2, 2: 2.25, 3: 2.37, 4: 2.44}
 
-number = int(input('Введите число: '))
-result = 0
-sum_value = 0
-output_list = []
-for i in range(1, number+1):
-    result = (1 + (1 / i)) ** i
-    sum_value += result
-    output_list.append(f'{i}: {round(result,2)}')
-print(output_list, sep=',')
-print(f'Сумма последовательности чисел равна = {round(sum_value,2)}')
+# number = int(input('Введите число: '))
+# result = 0
+# sum_value = 0
+# output_list = []
+# for i in range(1, number+1):
+#     result = (1 + (1 / i)) ** i
+#     sum_value += result
+#     output_list.append(f'{i}: {round(result,2)}')
+# print(output_list, sep=',')
+# print(f'Сумма последовательности чисел равна = {round(sum_value,2)}')
+
+#-----------------------------------------Семинар 2 задание 4-----------------------------------------#
+# Реализуйте алгоритм перемешивания списка.
+
+initial_list = [1,2,3,4,5,6,7,8,9]
+size = len(initial_list)
+print(initial_list)
+
+for i in range(size-1,0,-1):
+    j = random.randint(0,size-1)
+    initial_list[i], initial_list[j] = initial_list[j], initial_list[i]
+print(initial_list)
