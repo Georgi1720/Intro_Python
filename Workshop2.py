@@ -45,11 +45,51 @@ import random
 #-----------------------------------------Семинар 2 задание 4-----------------------------------------#
 # Реализуйте алгоритм перемешивания списка.
 
-initial_list = [1,2,3,4,5,6,7,8,9]
-size = len(initial_list)
-print(initial_list)
+# initial_list = [1,2,3,4,5,6,7,8,9]
+# size = len(initial_list)
+# print(initial_list)
+#
+# for i in range(size-1,0,-1):
+#     j = random.randint(0,size-1)
+#     initial_list[i], initial_list[j] = initial_list[j], initial_list[i]
+# print(initial_list)
 
-for i in range(size-1,0,-1):
-    j = random.randint(0,size-1)
-    initial_list[i], initial_list[j] = initial_list[j], initial_list[i]
-print(initial_list)
+#-----------------------------------------Семинар 2 задание 5-----------------------------------------#
+# ДОП. задача на алгоритмы с реальных собеседований
+# Даны два массива: [1, 2, 3, 2, 0] и [5, 1, 2, 7, 3, 2] Надо вернуть их пересечение
+# [1, 2, 2, 3] (порядок не важен)
+
+first_list = [1, 2, 3, 2, 0]
+size_first = len(first_list)
+second_list = [5, 1, 2, 7, 3, 2]
+size_second = len(second_list)
+output_list = []
+
+for i in range(0,size_first):
+    tmp = first_list[i]
+    for j in range(0,size_second):
+        if second_list[j] == tmp:
+            output_list.append(tmp)
+            break
+
+# Если алгоритмы не подразумевают метод .append() и его нельзя использовать то можно сделать так
+# counter = 0
+# for i in range(0,size_first):
+#     tmp = first_list[i]
+#     for j in range(0,size_second):
+#         if second_list[j] == tmp:
+#             counter += 1
+#             break
+#
+# output_list = [0] * counter
+# counter = 0
+#
+# for i in range(0,size_first):
+#     tmp = first_list[i]
+#     for j in range(0,size_second):
+#         if second_list[j] == tmp:
+#             output_list[counter] = tmp
+#             counter += 1
+#             break
+
+print(output_list)
