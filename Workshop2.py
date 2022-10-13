@@ -5,13 +5,14 @@
 # - 0,56 -> 11
 import random
 
-# float_value = input('Введите число с плавающей запятой: ')
-# sum_elements = 0
-# for i in float_value:
-#     if i != ',' and i != '.':
-#         sum_elements += int(i)
-#
-# print(f'Сумма элементов введенного числа = {sum_elements}')
+float_value = input('Введите число с плавающей запятой: ')
+sum_elements = 0
+for i in float_value:
+    try:
+        sum_elements += int(i)
+    except:
+        continue
+print(f'Сумма элементов введенного числа = {sum_elements}')
 
 #-----------------------------------------Семинар 2 задание 2-----------------------------------------#
 # Напишите программу, которая принимает на вход число N и выдает набор произведений чисел от 1 до N.
@@ -24,7 +25,7 @@ import random
 # for i in range(1, number+1):
 #     mul *= i
 #     factorial_list.append(mul)
-# print(factorial_list, sep=',')
+# print(factorial_list)
 
 #-----------------------------------------Семинар 2 задание 3-----------------------------------------#
 # Задайте список из n чисел последовательности (1 + 1/n)^n и выведите на экран их сумму.
@@ -98,24 +99,22 @@ import random
 # Задайте список из N элементов, заполненных числами из промежутка [-N, N].
 # Найдите произведение элементов на указанных позициях. Позиции хранятся в файле file.txt в одной строке одно число.
 
-number = int(input('Введите число: '))
-
-with open('text.txt','w') as file:
-    file.writelines(f'{random.randint(0, number * 2)}\n')
-    file.writelines(f'{random.randint(0, number * 2)}\n')
-    file.writelines(f'{random.randint(0, number * 2)}\n')
-    file.writelines(f'{random.randint(0, number * 2)}\n')
-index_list = []
-with open('text.txt','r') as file:
-    for line in file:
-        index_list.append(line.rstrip('\n'))    # от каретки всегда нужно будет избавляться подобным способом?
-
-print(f'Индексы из text.txt - {index_list}')
-mul = 1
-number_list = list(range(-number, number+1))
-for item in index_list:
-    mul *= number_list[int(item)]
-print(f'Основной список - {number_list}')
-print(f'Сумма элементов = {mul}')
+# number = int(input('Введите число: '))
+#
+# with open('text.txt','w') as file:
+#     for _ in range(4):
+#         file.writelines(f'{random.randint(0, number * 2)}\n')
+# index_list = []
+# with open('text.txt','r') as file:
+#     for line in file:
+#         index_list.append(line.strip())    # от каретки всегда нужно будет избавляться подобным способом?
+#
+# print(f'Индексы из text.txt - {index_list}')
+# mul = 1
+# number_list = list(range(-number, number+1))
+# for item in index_list:
+#     mul *= number_list[int(item)]
+# print(f'Основной список - {number_list}')
+# print(f'Сумма элементов = {mul}')
 
 
