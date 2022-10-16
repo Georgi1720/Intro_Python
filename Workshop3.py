@@ -21,13 +21,53 @@ import random
 # - [2, 3, 4, 5, 6] => [12, 15, 16];
 # - [2, 3, 5, 6] => [12, 15]
 
-some_list = []
-output_list = []
-for _ in range(1,random.randint(2,10)):
-    some_list.append(random.randint(1,100))
-print(f'Исходный список - {some_list}')
+# some_list = []
+# output_list = []
+# for _ in range(1,random.randint(2,10)):
+#     some_list.append(random.randint(1,100))
+# print(f'Исходный список - {some_list}')
+#
+# size = len(some_list)
+# for i in range(size-(size//2)):
+#     output_list.append(some_list[i]+some_list[size-i-1])
+# print(f'Список сумм - {output_list}')
 
-size = len(some_list)
-for i in range(size-(size//2)):
-    output_list.append(some_list[i]+some_list[size-i-1])
-print(f'Список сумм - {output_list}')
+#-----------------------------------------Семинар 3 задание 3-----------------------------------------#
+# Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным
+# значением дробной части элементов. Пример:
+# - [1.1, 1.2, 3.1, 5, 10.01] => 0.19
+
+# some_list = []
+# min = 1
+# max = 0
+# for _ in range(1,random.randint(2,10)):
+#     some_list.append(round(random.random()*100,random.randint(1,4)))
+# print(f'Исходный список - {some_list}')
+#
+# for i in range(len(some_list)):
+#     if (some_list[i] - int(some_list[i])) > max:
+#         max = some_list[i] - int(some_list[i])
+#
+#     if (some_list[i] - int(some_list[i])) < min:
+#         min = some_list[i] - int(some_list[i])
+#
+# print(f'Разница = {round(max-min,4)}')
+
+#-----------------------------------------Семинар 3 задание 4-----------------------------------------#
+# Напишите программу, которая будет преобразовывать десятичное число в двоичное.
+# Пример:
+# - 45 -> 101101
+# - 3 -> 11
+# - 2 -> 10
+
+dec_number = int(input('Введите десятичное число '))
+
+def dec_to_bin(dec_number):
+    if dec_number >= 1:
+        number = dec_number//2
+        ost = dec_number % 2
+        return dec_to_bin(number) + str(ost)
+    else:
+        return 'В двоичном формате '
+
+print(dec_to_bin(dec_number))
