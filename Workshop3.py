@@ -60,14 +60,35 @@ import random
 # - 3 -> 11
 # - 2 -> 10
 
-dec_number = int(input('Введите десятичное число '))
+# dec_number = int(input('Введите десятичное число '))
+#
+# def dec_to_bin(dec_number):
+#     if dec_number >= 1:
+#         number = dec_number//2
+#         ost = dec_number % 2
+#         return dec_to_bin(number) + str(ost)
+#     else:
+#         return 'В двоичном формате '
+#
+# print(dec_to_bin(dec_number))
 
-def dec_to_bin(dec_number):
-    if dec_number >= 1:
-        number = dec_number//2
-        ost = dec_number % 2
-        return dec_to_bin(number) + str(ost)
-    else:
-        return 'В двоичном формате '
+#-----------------------------------------Семинар 3 задание 5-----------------------------------------#
+# Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
+# Пример:
+# - для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21]
 
-print(dec_to_bin(dec_number))
+# number = int(input('Введите индекс чисел Фибоначчи '))
+# fibonacci_list = []
+# def fibonacci(n):
+#     if n >= 1:
+#         if n in (1, 2):
+#             return 1
+#         return fibonacci(n - 1) + fibonacci(n - 2)
+#     elif n <= -1:
+#         return fibonacci(n + 2) - fibonacci(n + 1)
+#     else:
+#         return 0
+#
+# for i in range(-number,number+1):
+#     fibonacci_list.append(fibonacci(i))
+# print(fibonacci_list)
