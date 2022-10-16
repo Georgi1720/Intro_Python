@@ -88,7 +88,28 @@ import random
 #         return fibonacci(n + 2) - fibonacci(n + 1)
 #     else:
 #         return 0
-#
 # for i in range(-number,number+1):
 #     fibonacci_list.append(fibonacci(i))
 # print(fibonacci_list)
+#-----------------------------------------Семинар 3 задание 6-----------------------------------------#
+# Сгруппировать слова по общим буквам.["eat","tea","tan","ate","nat","bat"]
+# [["eat","tea","ate"]["tan","nat"]["bat"]]
+
+def group_words(words):
+    result = []
+    words_dict = {}
+    for word in words:
+        sorted_word = "".join(sorted(word))
+        if not sorted_word in words_dict.keys():
+            words_dict[sorted_word] = []
+        words_dict[sorted_word].append(word)
+    for key, value in words_dict.items():
+        result.append(value)
+    return result
+
+
+input_list = ["eat", "tea", "tan", "ate", "nat", "bat"]
+output = group_words(input_list)
+print(f"input: {input_list}")
+print(f"output: {output}")
+
