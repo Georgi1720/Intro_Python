@@ -15,6 +15,40 @@ print(text_without_word)
 # a) Добавьте игру против бота
 # b) Подумайте как наделить бота ""интеллектом""
 
+import random as r
+player_1 = input("Введите имя первого игрока: ")
+player_2 = input("Введите имя второго игрока: ")
+queue_turn = r.randint(1,3)
+total_candys = 121
+candys_in_turn = 28
+if queue_turn == 1: print(f'Первый ход делает {player_1}. Нельзя брать больше 28 конфет!')
+else: print(f'Первый ход делает {player_2}. Нельзя брать больше 28 конфет!')
+
+while total_candys > 0:
+    if queue_turn == 1:
+        candys_in_turn = int(input(f'Осталось {total_candys} конфет. {player_1}, сколько конфет ты возьмешь? :'))
+        if candys_in_turn <= 28:
+            total_candys -= candys_in_turn
+            queue_turn = 2
+        else:
+            print(f'{player_1}, можно брать не больше 28 конфет!')
+            candys_in_turn = 1
+    if queue_turn == 2:
+        candys_in_turn = int(input(f'Осталось {total_candys} конфет. {player_2}, сколько конфет ты возьмешь? :'))
+        if candys_in_turn <= 28:
+            total_candys -= candys_in_turn
+            queue_turn = 1
+        else:
+            print(f'{player_1}, можно брать не больше 28 конфет!')
+            candys_in_turn = 1
+    if total_candys <= 28:
+        if queue_turn == 1:
+            print(f'Осталось {total_candys} конфет. {player_1} забирает их и выигрывает!')
+            break
+        else:
+            print(f'Осталось {total_candys} конфет. {player_2} забирает их и выигрывает!')
+            break
+
 #-----------------------------------------Семинар 5 задание 3-----------------------------------------#
 # Создайте программу для игры в ""Крестики-нолики"".
 
