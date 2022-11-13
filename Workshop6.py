@@ -48,10 +48,10 @@
 
 from random import *
 
-def print_str(input_list, qty=100):
+def print_str(input_list, qty=-1):
     tmp_list = enumerate(input_list,1)
     for id, item in tmp_list:
-        if id > qty:
+        if id == qty:
             break
         else:    
             item = str(item).split('.')
