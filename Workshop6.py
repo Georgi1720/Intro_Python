@@ -46,3 +46,20 @@
 # Создать новый список, содержащий те же цены, но отсортированные по убыванию.
 # Вывести цены пяти самых дорогих товаров. Сможете ли вывести цены этих товаров по возрастанию, написав минимум кода?
 
+from random import *
+
+def print_str(input_list, qty=100):
+    tmp_list = enumerate(input_list,1)
+    for id, item in tmp_list:
+        if id > qty:
+            break
+        else:    
+            item = str(item).split('.')
+            print(f'Цена позиции №{id} => {item[0]:02s} руб {item[1]:02s} коп', end=', ')
+
+prise = [round(random()*100,randint(0,2)) for i in range(20)]
+print(id(prise))
+prise.sort()
+prise.reverse()
+print(id(prise))
+print(print_str(prise, 5)) 
